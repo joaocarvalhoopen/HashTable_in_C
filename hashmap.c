@@ -96,7 +96,6 @@ Hashmap * hmap_new_min_size(size_t min_size) {
     hmap->last_error = NULL;
     hmap->size_elements = 0;
     // Allocate Hnode * structure (dynamic array).
-    // hmap->nodes = malloc(hmap->size_array * sizeof(Hnode **));
     hmap->nodes = malloc(hmap->size_array * sizeof(Hnode *));
     if (hmap->nodes == NULL) {
         free(hmap);
@@ -148,7 +147,7 @@ RetTuple hmap_delete(Hashmap ** hmap_pp) {
 //
 // Note: The struture RetTuple is copied by value.
 static RetTuple hmap_delete_optional_ptr(Hashmap ** hmap_pp, bool dont_free_the_outer_pointer) {
-    int32_t * ret_error = malloc(sizeof(uint32_t *));
+    int32_t * ret_error = malloc(sizeof(int32_t));
     // Validates the pointer.
     if (hmap_pp == NULL || *hmap_pp == NULL) {
         if (ret_error != NULL) {

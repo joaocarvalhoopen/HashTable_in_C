@@ -88,7 +88,7 @@ uint32_t test_02() {
     assert((hmap_2 != NULL) && "Error: hmap_2 in hmap_new() .");
 
     char * key_str = "bla";
-    int * value = malloc(sizeof(int *));
+    int * value = malloc(sizeof(int));
     *value =  33;
     int32_t res = hmap_insert( & hmap_2, key_str, (void *) value);
     assert(res == RET_ERROR_SUCCESS && "Error: hmap_2 in hmap_insert() .");
@@ -170,7 +170,7 @@ uint32_t test_03() {
 
     // Inserts element "tata".
     char * key_str_tata = "tata";
-    int * value_tata = malloc(sizeof(int *));
+    int * value_tata = malloc(sizeof(int));
     *value_tata =  66;
     int32_t res_2 = hmap_insert( & hmap_3, key_str_tata, (void *) value_tata);
     assert(res_2 == RET_ERROR_SUCCESS && "Error: hmap_3 in hmap_insert() .");
